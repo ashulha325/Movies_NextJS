@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const LayoutWrapper = styled.div`
-	padding: 40px 30px;
+	padding: 40px;
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
