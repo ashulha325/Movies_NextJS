@@ -9,4 +9,5 @@ export const NavigationWrapper = styled.div`
 export const NavLogoLink = styled(Link)`
 	margin-bottom: 20px;
 	display: block;
+	padding-right: 30px;
 `

@@ -5,10 +5,10 @@ export const LayoutWrapper = styled.div`
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
+	min-height: 100vh;
 `
 export const MainWrapper = styled.div`
 	width: 100%;
-	min-height: 100vh;
 `
 export const Content = styled.div`
 	max-width: 80%;
