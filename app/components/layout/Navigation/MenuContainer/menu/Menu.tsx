@@ -10,6 +10,7 @@ import MenuItem from '@/components/layout/Navigation/MenuContainer/menu/MenuItem
 import AuthItems from '@/components/layout/Navigation/MenuContainer/auth/AuthItems'
 
 const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
+	console.log(items)
 	return (
 		<MenuWrapper>
 			<MenuHeading>{title}</MenuHeading>
