@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import { IMenu } from '@/components/layout/Navigation/MenuContainer/menu/menu.interface'
 import {
 	MenuHeading,
-	MenuLi,
 	MenuList,
 	MenuWrapper,
 } from '@/components/layout/Navigation/MenuContainer/styled'
@@ -10,7 +9,6 @@ import MenuItem from '@/components/layout/Navigation/MenuContainer/menu/MenuItem
 import AuthItems from '@/components/layout/Navigation/MenuContainer/auth/AuthItems'
 
 const Menu: FC<{ menu: IMenu }> = ({ menu: { items, title } }) => {
-	console.log(items)
 	return (
 		<MenuWrapper>
 			<MenuHeading>{title}</MenuHeading>

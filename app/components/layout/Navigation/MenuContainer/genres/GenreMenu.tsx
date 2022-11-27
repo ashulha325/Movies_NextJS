@@ -11,7 +11,6 @@ const GenreMenu: FC = () => {
 	) : (
 		<Menu menu={{ title: 'Popular Genres', items: data || [] }} />
 	)
-	return null
 }
 
 export default GenreMenu
