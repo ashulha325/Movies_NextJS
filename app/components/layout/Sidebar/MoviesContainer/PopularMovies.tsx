@@ -16,7 +16,7 @@ const PopularMovies: FC = () => {
 		<>
 			{data && data.length && (
 				<MoviesList
-					movies={data || []}
+					movies={[...data]?.splice(0, 3) || []}
 					title={'Popular Movies'}
 					link={'/trending'}
 				/>
