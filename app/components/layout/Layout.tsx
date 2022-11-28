@@ -9,7 +9,7 @@ const Layout: FC<ILayout> = ({ children }) => {
 	useEffect(() => {
 		setTimeout(() => {
 			setLoaded(true)
-		}, 100)
+		}, 250)
 	}, [])
 	return (
 		<LayoutWrapper loaded={loaded}>
