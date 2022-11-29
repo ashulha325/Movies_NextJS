@@ -7,10 +7,7 @@ import Heading from '@/components/ui/heading/Heading'
 const Home: FC<IHome> = () => {
 	return (
 		<>
-			<Meta
-				title={'Watch Movies Online'}
-				description={'Watch Movie App'}
-			></Meta>
+			<Meta title={'Watch Movies Online'} description={'Watch Movie App'} />
 			<Heading title={'Watch Movies Online'} />
 		</>
 	)
