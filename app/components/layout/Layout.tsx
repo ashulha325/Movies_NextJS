@@ -5,14 +5,8 @@ import Sidebar from '@/components/layout/Sidebar/Sidebar'
 import { Content, LayoutWrapper, MainWrapper } from '@/components/layout/styled'
 
 const Layout: FC<ILayout> = ({ children }) => {
-	const [loaded, setLoaded] = useState<boolean>(false)
-	useEffect(() => {
-		setTimeout(() => {
-			setLoaded(true)
-		}, 250)
-	}, [])
 	return (
-		<LayoutWrapper loaded={loaded}>
+		<LayoutWrapper>
 			<Navigation />
 			<MainWrapper>
 				<Content>{children}</Content>

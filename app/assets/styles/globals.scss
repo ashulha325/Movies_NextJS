@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&display=swap');
+
+@import 'react-redux-toastr/src/styles/index';
 html,
 body {
 	padding: 0;
@@ -59,4 +61,16 @@ li {
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
+}
+
+#nprogress .bar {
+	background: var(--red) !important;
+}
+
+#nprogress .peg {
+	box-shadow: 0 0 10px var(--red), 0 0 5px var(--red) !important;
+}
+
+.fadeIn {
+	opacity: 1 !important;
 }
