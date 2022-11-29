@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const LayoutWrapper = styled.div`
+export const LayoutWrapper = styled(motion.div)`
 	padding: 0 40px;
 	display: flex;
 	align-items: flex-start;

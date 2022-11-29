@@ -20,21 +20,7 @@ const MainProvider: FC<ProviderProps> = ({ children }) => {
 			<QueryClientProvider client={queryClient}>
 				<HeadProgressBar />
 				<ReduxToast />
-				<motion.div
-					initial="initial"
-					animate="animate"
-					// this is a simple animation that fades in the page. You can do all kind of fancy stuff here
-					variants={{
-						initial: {
-							opacity: 0,
-						},
-						animate: {
-							opacity: 1,
-						},
-					}}
-				>
-					<Layout>{children}</Layout>
-				</motion.div>
+				<Layout>{children}</Layout>
 			</QueryClientProvider>
 		</Provider>
 	)
