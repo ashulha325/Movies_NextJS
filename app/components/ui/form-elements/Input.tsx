@@ -1,22 +1,32 @@
 import { FC } from 'react'
-import { IInput } from '@/components/ui/form-elements/form.interface'
 import styled from 'styled-components'
+import { InputProps } from '@/components/ui/form-elements/form.interface'
 
-export const Input: FC<IInput> = ({ name, ...rest }) => {
+export const Input: FC<InputProps> = ({
+	name,
+	register,
+	registerType,
+	errors,
+	...rest
+}) => {
 	return (
 		<InputWrapper>
-			<InputLabel htmlFor={name}>{name}</InputLabel>
-			<InputElement {...rest} type="text" name={name} id={name} />
+			<InputLabel>{name}</InputLabel>
+			<InputElement {...register(registerType)} type="text" {...rest} />
+			{errors?.[registerType]?.message && (
+				<InputError>{errors?.[registerType]?.message}</InputError>
+			)}
 		</InputWrapper>
 	)
 }
 
 const InputWrapper = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	&:not(:last-child) {
-		margin-bottom: 20px;
+		margin-bottom: 40px;
 	}
 `
 const InputLabel = styled.label`
@@ -24,7 +34,7 @@ const InputLabel = styled.label`
 	letter-spacing: -0.05em;
 	font-size: 12px;
 	text-transform: uppercase;
-	color: var(--gray700);
+	color: var(--gray500);
 `
 const InputElement = styled.input`
 	margin-top: 10px;
@@ -34,4 +44,11 @@ const InputElement = styled.input`
 	border-bottom: 1px solid var(--gray500);
 	color: var(--white);
 	padding-bottom: 4px;
+`
+
+const InputError = styled.span`
+	margin-top: 5px;
+	position: absolute;
+	top: 100%;
+	color: var(--red);
 `

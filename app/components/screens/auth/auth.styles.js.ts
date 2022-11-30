@@ -12,7 +12,7 @@ export const AuthWrapper = styled.div`
 	border-radius: 12px;
 `
 
-export const FormWrapper = styled.div`
+export const FormWrapper = styled.form`
 	width: 100%;
 	> div:first-child {
 		text-align: center;

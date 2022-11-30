@@ -1,9 +1,12 @@
-import { ButtonHTMLAttributes, InputHTMLAttributes } from 'react'
+import { ButtonHTMLAttributes } from 'react'
 
 export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
 	active?: boolean
 }
 
-export interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-	name?: string
+export type InputProps = {
+	name: string
+	register?: any
+	registerType: string
+	errors: any
 }
