@@ -7,6 +7,12 @@ import Meta from '@/utils/meta/Meta'
 import Heading from '@/components/ui/heading/Heading'
 import { log } from 'util'
 import { Button } from '@/components/ui/form-elements/Button'
+import {
+	AuthWrapper,
+	FormButtons,
+	FormWrapper,
+} from '@/components/screens/auth/auth.styles.js'
+import { Input } from '@/components/ui/form-elements/Input'
 
 export const AuthPage: FC<{}> = (props) => {
 	useAuthRedirect()
@@ -37,15 +43,18 @@ export const AuthPage: FC<{}> = (props) => {
 	}
 	return (
 		<>
-			<Meta title={'AuthPage'}></Meta>
-			<section>
-				<form onSubmit={handleSubmit(onSubmit)}>
-					<Heading title={'AuthPage'} />
-
+			<Meta title={'AuthPage'} />
+			<AuthWrapper>
+				<FormWrapper onSubmit={handleSubmit(onSubmit)}>
+					<Heading title={'Auth'} />
 					{/*{'fields'}*/}
-
 					<div>
+						<Input name={'E-mail'} />
+						<Input name={'Password'} />
+					</div>
+					<FormButtons>
 						<Button
+							active={true}
 							type={'submit'}
 							onClick={() => {
 								setType('login')
@@ -62,9 +71,9 @@ export const AuthPage: FC<{}> = (props) => {
 						>
 							Register
 						</Button>
-					</div>
-				</form>
-			</section>
+					</FormButtons>
+				</FormWrapper>
+			</AuthWrapper>
 		</>
 	)
 }
