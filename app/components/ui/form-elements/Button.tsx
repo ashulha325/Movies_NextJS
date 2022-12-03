@@ -22,4 +22,5 @@ const ButtonWrapper = styled.button<IButton>`
 	transition: 0.35s;
 	background: ${(props) => (!props.active ? 'var(--red)' : 'var(--dark-red)')};
 	cursor: pointer;
+	border-radius: 8px;
 `

@@ -10,7 +10,7 @@ const AdminPage: NextPageAuth = () => {
 
 	useEffect(() => {
 		if (!auth && !isAdmin) {
-			router.push('/')
+			router.push('/404')
 		}
 	}, [auth])
 
