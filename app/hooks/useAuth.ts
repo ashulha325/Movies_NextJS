@@ -7,12 +7,11 @@ export const useAuth = () => {
 	const state = useSelector((state: any) => state.user)
 
 	useEffect(() => {
-		console.log(state.user)
 		if (!state.user) {
 			setAuth(false)
 			return
 		}
 		setAuth(true)
 	}, [state.user])
-	return { auth, isLoading: state.isLoading }
+	return { auth, isAdmin: state?.user?.isAdmin, isLoading: state.isLoading }
 }

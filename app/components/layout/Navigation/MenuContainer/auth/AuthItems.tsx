@@ -4,7 +4,7 @@ import LogoutButton from '@/components/layout/Navigation/MenuContainer/auth/Logo
 import MenuItem from '@/components/layout/Navigation/MenuContainer/menu/MenuItem'
 
 const AuthItems: FC = () => {
-	const { auth } = useAuth()
+	const { auth, isAdmin } = useAuth()
 
 	return (
 		<>
@@ -17,6 +17,15 @@ const AuthItems: FC = () => {
 							link: '/account',
 						}}
 					/>
+					{isAdmin && (
+						<MenuItem
+							item={{
+								icon: 'MdAdminPanelSettings',
+								title: 'Admin Panel',
+								link: '/admin',
+							}}
+						/>
+					)}
 					<LogoutButton />
 				</>
 			) : (

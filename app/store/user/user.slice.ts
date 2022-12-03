@@ -21,7 +21,7 @@ export const userSlice = createSlice({
 			state.isLoading = true
 		})
 		builder.addCase(registration.fulfilled, (state, { payload }) => {
-			console.log(payload)
+			payload
 			state.isLoading = false
 			state.user = payload.user
 		})
