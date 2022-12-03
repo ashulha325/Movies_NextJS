@@ -1,11 +1,9 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { useAuthRedirect } from '@/components/screens/auth/useAuthRedirect'
 import { useAuth } from '@/hooks/useAuth'
-import { SubmitHandler, useForm } from 'react-hook-form'
-import { IAuthInput } from '@/components/screens/auth/auth.interface'
+import { useForm } from 'react-hook-form'
 import Meta from '@/utils/meta/Meta'
 import Heading from '@/components/ui/heading/Heading'
-import { log } from 'util'
 import { Button } from '@/components/ui/form-elements/Button'
 import {
 	AuthWrapper,
@@ -15,11 +13,9 @@ import {
 import { Input } from '@/components/ui/form-elements/Input'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
+import { useActions } from '@/hooks/useActions'
+import { IAuthInput } from '@/components/screens/auth/auth.interface'
 
-type Register = {
-	email: string
-	password: string
-}
 const ValidationSchema = yup.object().shape({
 	email: yup
 		.string()
@@ -27,7 +23,7 @@ const ValidationSchema = yup.object().shape({
 		.required('Email is required'),
 	password: yup
 		.string()
-		.max(32, 'Max password length is 32')
+		.min(6, 'Min password length is 32')
 		.required('Password is required'),
 })
 
@@ -35,15 +31,15 @@ export const Auth: FC = () => {
 	useAuthRedirect()
 
 	const { isLoading } = useAuth()
-
+	const { login } = useActions()
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-	} = useForm<Register>({ resolver: yupResolver(ValidationSchema) })
+	} = useForm<IAuthInput>({ resolver: yupResolver(ValidationSchema) })
 
-	const onSubmit = (data: Register): void => {
-		console.log(data)
+	const onSubmit = (data: IAuthInput): void => {
+		login(data)
 	}
 
 	return (

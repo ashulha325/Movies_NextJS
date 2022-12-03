@@ -5,7 +5,6 @@ import { ReduxToast } from './ReduxToast'
 import { Provider } from 'react-redux'
 import { store } from '@/store/store'
 import { HeadProgressBar } from './HeadProgressbar'
-import { motion } from 'framer-motion'
 
 const queryClient = new QueryClient({
 	defaultOptions: {

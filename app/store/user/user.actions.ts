@@ -5,7 +5,7 @@ import { toastr } from 'react-redux-toastr'
 import { toastError } from '@/utils/toast-error'
 import { errorCatch } from '../../api/api.helpers'
 
-export const register = createAsyncThunk<IAuthResponse, IEmailPassword>(
+export const registration = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	'auth/register',
 	async ({ email, password }, thunkApi: any) => {
 		try {
@@ -33,12 +33,12 @@ export const login = createAsyncThunk<IAuthResponse, IEmailPassword>(
 	}
 )
 
-export const logout = createAsyncThunk('auth/check-auth', async () => {
+export const logout = createAsyncThunk('auth/logout', async () => {
 	await AuthService.logout()
 })
 
 export const checkAuth = createAsyncThunk<IAuthResponse>(
-	'auth/login',
+	'auth/check-auth',
 	async (_, thunkApi: any) => {
 		try {
 			const response = await AuthService.getNewTokens()

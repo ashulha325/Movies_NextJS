@@ -3,13 +3,13 @@ import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
 export const useAuthRedirect = () => {
-	const { user } = useAuth()
+	const { auth } = useAuth()
 
 	const { query, push } = useRouter()
 
-	const redirect = String(query.redirect) || '/'
+	const redirect = '/'
 
 	useEffect(() => {
-		if (user) push(redirect)
-	}, [user, redirect, push])
+		if (auth) push(redirect)
+	}, [auth, redirect, push])
 }

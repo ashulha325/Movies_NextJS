@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { IInitialState } from '@/store/user/user.interface'
 import { getStoreLocalStorage } from '@/utils/local-storage'
-import { register, login, logout, checkAuth } from '@/store/user/user.actions'
+import {
+	registration,
+	login,
+	logout,
+	checkAuth,
+} from '@/store/user/user.actions'
 
 const initialState: IInitialState = {
 	isLoading: false,
@@ -12,15 +17,16 @@ export const userSlice = createSlice({
 	initialState: initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(register.pending, (state) => {
+		builder.addCase(registration.pending, (state) => {
 			state.isLoading = true
 		})
-		builder.addCase(register.fulfilled, (state, { payload }) => {
+		builder.addCase(registration.fulfilled, (state, { payload }) => {
+			console.log(payload)
 			state.isLoading = false
 			state.user = payload.user
 		})
-		builder.addCase(register.rejected, (state) => {
-			state.isLoading = true
+		builder.addCase(registration.rejected, (state) => {
+			state.isLoading = false
 			state.user = null
 		})
 

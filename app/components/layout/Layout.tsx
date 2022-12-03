@@ -3,7 +3,6 @@ import { FC, ReactNode, useEffect, useState } from 'react'
 import Navigation from '@/components/layout/Navigation/Navigation'
 import Sidebar from '@/components/layout/Sidebar/Sidebar'
 import { Content, LayoutWrapper, MainWrapper } from '@/components/layout/styled'
-import { motion } from 'framer-motion'
 
 const Layout: FC<ILayout> = ({ children }) => {
 	return (

@@ -8,17 +8,17 @@ import { getContentType } from '../../api/api.helpers'
 export const AuthService = {
 	async register(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('auth/register'),
+			getAuthUrl('/register'),
 			{ email, password }
 		)
 		if (response.data.accessToken) {
 			saveToStorage(response.data)
 		}
-		return response
+		return response.data
 	},
 	async login(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('auth/login'),
+			getAuthUrl('/login'),
 			{ email, password }
 		)
 
@@ -28,7 +28,7 @@ export const AuthService = {
 
 		return response
 	},
-	logout() {
+	async logout() {
 		removeTokensStorage()
 		localStorage.removeItem('user')
 	},
@@ -36,7 +36,7 @@ export const AuthService = {
 		const refreshToken = Cookies.get('refreshToken')
 
 		const response = await axiosClassic.post<IAuthResponse>(
-			getAuthUrl('login/access-token'),
+			getAuthUrl('/access-token'),
 			{ refreshToken },
 			{ headers: getContentType() as any }
 		)
