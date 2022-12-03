@@ -5,6 +5,8 @@ import { ReduxToast } from './ReduxToast'
 import { Provider } from 'react-redux'
 import { store } from '@/store/store'
 import { HeadProgressBar } from './HeadProgressbar'
+import { AuthProvider } from './AuthProvider/AuthProvider'
+import { TypeComponentsAuthFileds } from '@/shared/types/auth.types'
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -13,13 +15,18 @@ const queryClient = new QueryClient({
 		},
 	},
 })
-const MainProvider: FC<ProviderProps> = ({ children }) => {
+const MainProvider: FC<TypeComponentsAuthFileds> = ({
+	children,
+	Component,
+}) => {
 	return (
 		<Provider store={store}>
 			<QueryClientProvider client={queryClient}>
 				<HeadProgressBar />
 				<ReduxToast />
-				<Layout>{children}</Layout>
+				<AuthProvider Component={Component}>
+					<Layout>{children}</Layout>
+				</AuthProvider>
 			</QueryClientProvider>
 		</Provider>
 	)

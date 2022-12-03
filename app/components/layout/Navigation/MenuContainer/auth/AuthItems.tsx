@@ -14,7 +14,7 @@ const AuthItems: FC = () => {
 						item={{
 							icon: 'MdAccountBox',
 							title: 'My Account',
-							link: '/account',
+							link: '/profile',
 						}}
 					/>
 					{isAdmin && (
@@ -22,7 +22,7 @@ const AuthItems: FC = () => {
 							item={{
 								icon: 'MdAdminPanelSettings',
 								title: 'Admin Panel',
-								link: '/admin',
+								link: '/manage',
 							}}
 						/>
 					)}

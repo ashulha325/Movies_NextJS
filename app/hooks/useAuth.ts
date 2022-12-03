@@ -13,5 +13,6 @@ export const useAuth = () => {
 		}
 		setAuth(true)
 	}, [state.user])
+
 	return { auth, isAdmin: state?.user?.isAdmin, isLoading: state.isLoading }
 }

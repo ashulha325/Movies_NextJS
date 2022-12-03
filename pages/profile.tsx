@@ -1,6 +1,14 @@
-import { NextPage } from 'next'
+import { NextPageAuth } from '@/shared/types/auth.types'
+import Meta from '@/utils/meta/Meta'
 
-const profilePage: NextPage = () => {
-	return <div></div>
+const ProfilePage: NextPageAuth = () => {
+	return (
+		<>
+			<Meta title={'Profile'} />
+		</>
+	)
 }
-export default profilePage
+
+ProfilePage.isOnlyAdmin = true
+
+export default ProfilePage
