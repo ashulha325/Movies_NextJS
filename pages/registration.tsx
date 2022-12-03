@@ -1,7 +1,7 @@
-import { FC } from 'react'
 import { Register } from '@/components/screens/auth/Register'
+import { NextPage } from 'next'
 
-const Registration: FC = () => {
+const Registration: NextPage = () => {
 	return <Register />
 }
 export default Registration

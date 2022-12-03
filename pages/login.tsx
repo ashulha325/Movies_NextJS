@@ -1,7 +1,7 @@
-import { FC } from 'react'
 import { Auth } from '@/components/screens/auth/Auth'
+import { NextPage } from 'next'
 
-const Login: FC = () => {
+const Login: NextPage = () => {
 	return <Auth />
 }
 export default Login
