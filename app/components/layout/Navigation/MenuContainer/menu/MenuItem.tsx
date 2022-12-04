@@ -7,8 +7,9 @@ import MaterialIcon from '@/components/ui/MaterialIcon'
 
 const MenuItem: FC<{ item: IMenuItem }> = ({ item: { link, title, icon } }) => {
 	const { asPath } = useRouter()
+
 	return (
-		<MenuLi active={asPath === link}>
+		<MenuLi active={asPath === link || link.includes('manage')}>
 			<Link href={link}>
 				<MaterialIcon name={icon} />
 				<span>{title}</span>

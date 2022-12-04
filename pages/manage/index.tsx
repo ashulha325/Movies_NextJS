@@ -1,23 +1,10 @@
-import { NextPageAuth } from '@/shared/types/auth.types'
-import { useEffect } from 'react'
-import { useRouter } from 'next/router'
-import { useAuth } from '@/hooks/useAuth'
-import Meta from '@/utils/meta/Meta'
+import { Admin } from '@/components/screens/admin/Admin'
+import { useAdminRoute } from '@/hooks/usePrivateRoute'
+import { NextPage } from 'next'
 
-const AdminPage: NextPageAuth = () => {
-	const router = useRouter()
-	const { auth, isAdmin } = useAuth()
+const AdminPage: NextPage = () => {
+	useAdminRoute()
 
-	useEffect(() => {
-		if (!auth && !isAdmin) {
-			router.push('/404')
-		}
-	}, [auth])
-
-	return (
-		<>
-			<Meta title={'Admin'} />
-		</>
-	)
+	return <Admin />
 }
 export default AdminPage
