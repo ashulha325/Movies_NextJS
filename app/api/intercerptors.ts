@@ -25,7 +25,6 @@ instance.interceptors.request.use((config) => {
 	if (config.headers && accessToken) {
 		config.headers.Authorization = `Bearer ${accessToken}`
 	}
-
 	return config
 })
 
@@ -34,22 +33,20 @@ instance.interceptors.response.use(
 	async (error) => {
 		const originalRequest = error.config
 
+		console.log(1)
 		if (
 			error.statusCode === 401 ||
-			errorCatch(error) === 'jwt expired' ||
-			(errorCatch(error) === 'jwt must be provided' &&
-				error.config &&
-				!error.config._isRetry)
+			error.statusCode === 401 ||
+			(error.config && !error.config._isRetry)
 		) {
 			originalRequest._isRetry = true
-
 			try {
+				console.log(1)
 				await AuthService.getNewTokens()
 				return instance.request(originalRequest)
 			} catch (err) {
-				if (errorCatch(err) === 'jwt expired') {
-					removeTokensStorage()
-				}
+				localStorage.removeItem('user')
+				removeTokensStorage()
 			}
 		}
 		throw error

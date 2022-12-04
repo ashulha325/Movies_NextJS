@@ -22,7 +22,11 @@ export const useUsers = () => {
 					(user): ITableItem => ({
 						_id: user._id,
 						editUrl: getAdminUrl(`user/edit/${user._id}`),
-						items: [user.email, user.createdAt],
+						items: [
+							user.email,
+							new Date(user.createdAt).toLocaleDateString('ua'),
+						],
+						isAdmin: user.isAdmin,
 					})
 				)
 			},

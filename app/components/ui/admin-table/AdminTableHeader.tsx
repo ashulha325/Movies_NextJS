@@ -1,12 +1,20 @@
 import React, { FC } from 'react'
+import {
+	AdminTableHeaderItemWrapper,
+	AdminTableHeaderWrapper,
+} from '@/components/ui/admin-table/admin-table.styled'
 
 const AdminTableHeader: FC<{ headerItems: string[] }> = ({ headerItems }) => {
 	return (
-		<div>
+		<AdminTableHeaderWrapper>
 			{headerItems.map((value, idx) => {
-				return <div key={value}>{value}</div>
+				return (
+					<AdminTableHeaderItemWrapper key={value}>
+						{value}
+					</AdminTableHeaderItemWrapper>
+				)
 			})}
-		</div>
+		</AdminTableHeaderWrapper>
 	)
 }
 

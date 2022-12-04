@@ -3,6 +3,7 @@ import AdminTableHeader from '@/components/ui/admin-table/AdminTableHeader'
 import AdminTableItem from '@/components/ui/admin-table/AdminTableItem'
 import { ITableItem } from '@/components/ui/admin-table/admin-table.interface'
 import SkeletonLoader from '@/components/ui/skeleton/SkeletonLoader'
+import { AdminTableWrapper } from '@/components/ui/admin-table/admin-table.styled'
 
 interface IAdminTable {
 	tableItems: ITableItem[]
@@ -17,7 +18,7 @@ const AdminTable: FC<IAdminTable> = ({
 	removeHandler,
 }) => {
 	return (
-		<div>
+		<AdminTableWrapper>
 			<AdminTableHeader headerItems={headerItems} />
 			{isLoading ? (
 				<SkeletonLoader height={20} width={100 + '%'} />
@@ -34,7 +35,7 @@ const AdminTable: FC<IAdminTable> = ({
 			) : (
 				<div>Elements not Found</div>
 			)}
-		</div>
+		</AdminTableWrapper>
 	)
 }
 

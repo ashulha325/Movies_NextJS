@@ -1,15 +1,27 @@
 import React, { FC } from 'react'
 import { IAdminTableItem } from '@/components/ui/admin-table/admin-table.interface'
 import AdminActions from '@/components/ui/admin-table/admin-actions/AdminActions'
+import {
+	AdminTableHeaderItemColWrapper,
+	AdminTableItemWrapper,
+} from '@/components/ui/admin-table/admin-table.styled'
 
 const AdminTableItem: FC<IAdminTableItem> = ({ tableItem, removeHandler }) => {
 	return (
-		<div>
+		<AdminTableItemWrapper>
 			{tableItem.items.map((value) => {
-				return <div key={value}>{value}</div>
+				return (
+					<AdminTableHeaderItemColWrapper key={value}>
+						{value}
+					</AdminTableHeaderItemColWrapper>
+				)
 			})}
-			<AdminActions editUrl={tableItem.editUrl} removeHandler={removeHandler} />
-		</div>
+			<AdminActions
+				isAdmin={tableItem.isAdmin}
+				editUrl={tableItem.editUrl}
+				removeHandler={removeHandler}
+			/>
+		</AdminTableItemWrapper>
 	)
 }
 
