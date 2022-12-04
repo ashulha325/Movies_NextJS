@@ -4,7 +4,7 @@ import Heading from '@/components/ui/heading/Heading'
 import { Statistics } from '@/components/screens/admin/Statistics/Statistics'
 import { AdminBar } from '@/components/ui/admin-bar/AdminBar'
 
-export const Admin: FC<{}> = (props) => {
+export const Admin: FC = (props) => {
 	return (
 		<>
 			<Meta title={'Admin panel'} />

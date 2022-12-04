@@ -4,7 +4,7 @@ import { FC } from 'react'
 import { useRouter } from 'next/router'
 import { siteName, titleMerge } from '@/config/seo.config'
 import logoImage from '@/assets/images/logo.svg'
-const Meta: FC<ISeo> = ({ title, description, image, children }) => {
+const Meta: FC<ISeo> = ({ title, description, image }) => {
 	const { asPath } = useRouter()
 
 	const currentUrl = `${process.env.APP_URL}${asPath}`
@@ -31,7 +31,6 @@ const Meta: FC<ISeo> = ({ title, description, image, children }) => {
 				) : (
 					<meta name="robots" content={'no-index, nofollow'} />
 				)}
-				{children}
 			</Head>
 		</>
 	)

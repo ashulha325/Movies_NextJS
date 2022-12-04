@@ -1,4 +1,4 @@
-import { Admin } from '@/components/screens/admin/Admin'
+import { Admin } from '@/components/screens/admin/Home/Admin'
 import { useAdminRoute } from '@/hooks/usePrivateRoute'
 import { NextPage } from 'next'
 
