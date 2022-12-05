@@ -3,7 +3,7 @@ import Meta from '@/utils/meta/Meta'
 import { AdminBar } from '@/components/ui/admin-bar/AdminBar'
 import Heading from '@/components/ui/heading/Heading'
 import AdminHeader from '@/components/ui/admin-table/admin-header/AdminHeader'
-import { useUsers } from '@/components/screens/admin/Users/useUsers'
+import { useUsers } from '@/components/screens/admin/User/useUsers'
 import AdminTable from '@/components/ui/admin-table/AdminTable'
 
 const Users: FC = () => {
@@ -11,7 +11,7 @@ const Users: FC = () => {
 
 	return (
 		<>
-			<Meta title={'Admin/users'} />
+			<Meta title={'Admin/user'} />
 			<AdminBar />
 			<Heading title={'Users'} />
 			<AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />

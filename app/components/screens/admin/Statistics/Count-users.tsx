@@ -5,7 +5,7 @@ import SkeletonLoader from '@/components/ui/skeleton/SkeletonLoader'
 import { StatisticsUsersCountWrapper } from '@/components/screens/admin/styled.admin'
 
 const CountUsers: FC<{}> = (props) => {
-	const { isLoading, data: response } = useQuery('Count Users', () =>
+	const { isLoading, data: response } = useQuery('Count User', () =>
 		AdminService.getCountUsers()
 	)
 	return (

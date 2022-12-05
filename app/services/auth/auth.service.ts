@@ -4,7 +4,7 @@ import { getAuthUrl } from '@/config/api.config'
 import { removeTokensStorage, saveToStorage } from '@/services/auth/auth.helper'
 import Cookies from 'js-cookie'
 import { getContentType } from '../../api/api.helpers'
-
+import { useRouter } from 'next/router'
 export const AuthService = {
 	async register(email: string, password: string) {
 		const response = await axiosClassic.post<IAuthResponse>(

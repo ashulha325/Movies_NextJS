@@ -8,7 +8,7 @@ export const adminNavItems: IAdminBarItem[] = [
 	},
 	{
 		title: 'Users',
-		link: '/manage/users',
+		link: '/manage/user',
 	},
 	{
 		title: 'Movies',

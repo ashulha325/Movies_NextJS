@@ -32,8 +32,6 @@ instance.interceptors.response.use(
 	(config) => config,
 	async (error) => {
 		const originalRequest = error.config
-
-		console.log(1)
 		if (
 			error.statusCode === 401 ||
 			error.statusCode === 401 ||
@@ -41,7 +39,6 @@ instance.interceptors.response.use(
 		) {
 			originalRequest._isRetry = true
 			try {
-				console.log(1)
 				await AuthService.getNewTokens()
 				return instance.request(originalRequest)
 			} catch (err) {

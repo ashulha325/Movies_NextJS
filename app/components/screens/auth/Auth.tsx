@@ -23,7 +23,7 @@ const ValidationSchema = yup.object().shape({
 		.required('Email is required'),
 	password: yup
 		.string()
-		.min(6, 'Min password length is 32')
+		.min(6, 'Min password length is 6')
 		.required('Password is required'),
 })
 
@@ -39,6 +39,7 @@ export const Auth: FC = () => {
 	} = useForm<IAuthInput>({ resolver: yupResolver(ValidationSchema) })
 
 	const onSubmit = (data: IAuthInput): void => {
+		console.log(1)
 		login(data)
 	}
 

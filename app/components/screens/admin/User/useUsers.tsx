@@ -1,7 +1,7 @@
 import { ChangeEvent, useMemo, useState } from 'react'
 import useDebounce from '@/hooks/useDebounce'
 import { useMutation, useQuery } from 'react-query'
-import { UsersService } from '@/services/users.service'
+import { UsersService } from '@/services/user/users.service'
 import { ITableItem } from '@/components/ui/admin-table/admin-table.interface'
 import { getAdminUrl } from '@/config/url.config'
 import { toastError } from '@/utils/toast-error'
@@ -55,7 +55,6 @@ export const useUsers = () => {
 		}
 	)
 
-	console.log(queryData)
 	return useMemo(
 		() => ({
 			handleSearch,

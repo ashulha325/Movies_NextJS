@@ -7,12 +7,20 @@ export const Input: FC<InputProps> = ({
 	register,
 	registerType,
 	errors,
+	value,
+	onChange,
 	...rest
 }) => {
 	return (
 		<InputWrapper>
 			<InputLabel>{name}</InputLabel>
-			<InputElement {...register(registerType)} type="text" {...rest} />
+			<InputElement
+				{...register(registerType)}
+				value={value}
+				onChange={onChange}
+				type="text"
+				{...rest}
+			/>
 			{errors?.[registerType]?.message && (
 				<InputError>{errors?.[registerType]?.message}</InputError>
 			)}

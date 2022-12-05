@@ -2,8 +2,10 @@ import { FC, SyntheticEvent } from 'react'
 import MaterialIcon from '@/components/ui/MaterialIcon'
 import { MenuLi } from '@/components/layout/Navigation/MenuContainer/styled'
 import { useActions } from '@/hooks/useActions'
+import { useRouter } from 'next/router'
 
 const LogoutButton: FC = () => {
+	const { push } = useRouter()
 	const { logout } = useActions()
 
 	const handleLogout = (e: SyntheticEvent<HTMLAnchorElement>) => {

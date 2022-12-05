@@ -8,7 +8,7 @@ export const useAdminRoute = () => {
 
 	useEffect(() => {
 		if (!auth && !isAdmin) {
-			router.push('/404')
+			router.push('/')
 		}
 	}, [auth])
 }
